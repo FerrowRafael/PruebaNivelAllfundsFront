@@ -1,0 +1,41 @@
+<div class="w-full lg:max-w-full lg:flex mb-5">
+  <div routerLink="/new/{{ new._id }}"
+    class="cursor-pointer h-48 lg:h-auto lg:w-80 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
+    style="background-image: url('{{ new.image }}')" title="{{ new.title }}">
+  </div>
+  <div
+    class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal w-full">
+    <div class="mb-8">
+      <p class="text-sm text-gray-600 flex items-center">
+        #{{ new.category }}
+      </p>
+      <a routerLink="/new/{{ new._id }}" class="text-gray-900 font-bold text-xl mb-2">{{ new.title }}</a>
+      <p class="text-gray-700 text-base">{{ new.description }}</p>
+    </div>
+
+    <div class="flex justify-between">
+      <div>
+        <img class="w-10 h-10 rounded-full mr-4"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeeUl9IZDN97pBQNgeunx6dD1df-4g7vkPFw&usqp=CAU"
+          alt="{{ new.author}}">
+        <div class="text-sm">
+          <p class="text-gray-900 leading-none">{{ new.author }}</p>
+          <p class="text-gray-600">{{ new.date | date: 'dd/MM/yyyy' }}</p>
+          <p *ngIf="type === 'archived'" class="text-gray-900">Archived Date: <span class="text-gray-600">{{
+              new.archiveDate | date:'d/M/y' }}</span></p>
+        </div>
+      </div>
+      <div class="self-end">
+        <a *ngIf="type === 'new'" (click)="addArchived(new._id)"
+          class="cursor-pointer px-6 py-2 border-2 border-gray-800 font-medium text-xs" data-bs-toggle="tooltip"
+          data-bs-placement="top" title="Archive">
+          <i class="fa-solid fa-folder-open text-black"></i>
+        </a>
+        <a *ngIf="type === 'archived'" (click)="delete(new._id)"
+          class="cursor-pointer px-6 py-2 border-2 border-gray-800 font-medium text-xs" data-bs-toggle="tooltip"
+          data-bs-placement="top" title="Delete">
+          <i class="fa-solid fa-trash-can"></i>
+        </a>
+      </div>
+    </div>
+  </div>
