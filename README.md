@@ -56,10 +56,10 @@ Pasar POST de 'http://localhost:3001/news' para poblar DB
 ## Views 👓
 
 ### Home
-<img src="./newsAppFrontend/src/assets/images/Home.png" alt="Home"/>
+<img src="./src/assets/images/Home.png" alt="Home"/>
 
 ### Archived
-<img src="./newsAppFrontend/src/assets/images/Archived.png" alt="Archived"/>
+<img src="./src/assets/images/Archived.png" alt="Archived"/>
 
 ### Detail
-<img src="./newsAppFrontend/src/assets/images/DetailMobile.png" alt="Detail"/>
+<img src="./src/assets/images/DetailMobile.png" width="300" alt="Detail"/>
